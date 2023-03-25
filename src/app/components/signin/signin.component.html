@@ -1,0 +1,58 @@
+<!-- Pills navs -->
+
+<div class="card text-center" style="width: 500px;">
+  <div class="card-header h5 text-white bg-primary">Đăng ký</div>
+  <div class="card-body px-5">
+<ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="tab-login" data-mdb-toggle="pill" href="Login" role="tab"
+      aria-controls="pills-login" aria-selected="true">Đăng nhập</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="tab-register" data-mdb-toggle="pill" href="Signin" role="tab"
+      aria-controls="pills-register" aria-selected="false">Đăng ký</a>
+  </li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane fade show active" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+  <form>
+    <!-- Username input -->
+    <div class="form-outline mb-4">
+      <input type="text" id="registerUsername" class="form-control" placeholder="Tên tài khoản" style="text-align: center;"/>
+      <label class="form-label" for="registerUsername"></label>
+    </div>
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <input type="email" id="registerEmail" class="form-control" placeholder="Email" style="text-align: center;" />
+      <label class="form-label" for="registerEmail"></label>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <input type="password" id="registerPassword" class="form-control" placeholder="Mật khẩu" style="text-align: center;" />
+      <label class="form-label" for="registerPassword"></label>
+    </div>
+
+    <!-- Repeat Password input -->
+    <div class="form-outline mb-4">
+      <input type="password" id="registerRepeatPassword" class="form-control" placeholder="Nhập lại mật khẩu" style="text-align: center;" />
+      <label class="form-label" for="registerRepeatPassword"></label>
+    </div>
+
+    <!-- Checkbox -->
+    <div class="form-check d-flex justify-content-center mb-4">
+      <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
+        aria-describedby="registerCheckHelpText" />
+      <label class="form-check-label" for="registerCheck">
+        Tôi đã đọc kĩ điều khoản
+      </label>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+  </form>
+</div>
+</div>
+</div>
+</div>
+<!-- Pills content -->

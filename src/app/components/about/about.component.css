@@ -1,0 +1,10 @@
+.footer {
+  border-top: 60px solid #ccc;
+  padding: 0px;
+  margin-top: 20px;
+  background-color:#D3D3D3	;
+}
+.container{
+  height: 100%;
+  margin-left: 5%;
+}
