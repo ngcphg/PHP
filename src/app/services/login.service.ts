@@ -11,6 +11,5 @@ export class LoginService {
 
   LoginService(fromData: FormData):Observable<any>{
     return this.http.post<any>('http://localhost:80/PHPapi/Login/Signin.php',fromData);
-
   }
 }

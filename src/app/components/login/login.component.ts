@@ -16,24 +16,19 @@ export class LoginComponent {
     formData.append('user',user);
     formData.append('pass',pass);
     this.loginService.LoginService(formData).subscribe
-    async function fetchData() {
-      const response = await fetch('example.json');
-      const data = await response.json();
-      console.log(data);
-    }
-
-    fetchData();
-    //   (res=>{
-    //     fetch(res).then(response=>response.json()).then(data=>{
-    //       if(data.authority == "1"){
-    //         window.location.href = "http://localhost:4200/Home";
-    //       }else{
-    //         window.location.href = "http://localhost:4200/Home";
-    //       }
-    //     })
-    //   },err=>{
-    //     console.log(err)
-    //   }
-    // )
+      (res=>{
+          if(res === "1"){
+            window.location.href = "http://localhost:4200/Home";
+          }else{
+            if(res === "2"){
+              window.location.href = "http://localhost:4200/Addmon";
+            }else{
+              alert("Login failed");
+            }
+          }
+      },err=>{
+        alert(err)
+      }
+    )
   }
 }
