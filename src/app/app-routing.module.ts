@@ -14,6 +14,7 @@ import { AddmonComponent } from './components/addmon/addmon.component';
 import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CashComponent } from './components/cash/cash.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {path:'Home', component: HomeComponent},
@@ -32,7 +33,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    HttpClientModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

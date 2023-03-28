@@ -1,3 +1,4 @@
+import { AddmonService } from './services/addmon.services';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -41,7 +42,8 @@ import { OrderComponent } from './components/order/order.component';
     BrowserModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
