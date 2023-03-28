@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class RegisterService {
 
   constructor(private http:HttpClient) { }
 
-  LoginService(fromData: FormData):Observable<any>{
-    return this.http.post<any>('http://localhost:80/PHPapi/Login/Signin.php',fromData);
+  RegisterService(fromData: FormData):Observable<any>{
+    return this.http.post<any>('http://localhost:80/PHPapi/Login/RegisterClient.php',fromData);
   }
 }

@@ -17,11 +17,11 @@ export class LoginComponent {
     formData.append('pass',pass);
     this.loginService.LoginService(formData).subscribe
       (res=>{
-          if(res === "1"){
+          if(res === "2"){
             window.location.href = "http://localhost:4200/Home";
           }else{
-            if(res === "2"){
-              window.location.href = "http://localhost:4200/Addmon";
+            if(res === "1"){
+              window.location.href = "http://localhost:4200/Adminpage";
             }else{
               alert("Login failed");
             }
