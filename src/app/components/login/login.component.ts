@@ -1,7 +1,7 @@
 import { response } from 'express';
-import { LoginService } from './../../services/login.service';
+import { LoginService } from '../../services/login.services';
 import { Component } from '@angular/core';
-
+import { getCookie, setCookie } from 'typescript-cookie'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,9 +18,11 @@ export class LoginComponent {
     this.loginService.LoginService(formData).subscribe
       (res=>{
           if(res === "2"){
+            setCookie('user', user, { expires: 7 })
             window.location.href = "http://localhost:4200/Home";
           }else{
             if(res === "1"){
+              setCookie('user', user, { expires: 7 })
               window.location.href = "http://localhost:4200/Adminpage";
             }else{
               alert("Login failed");
