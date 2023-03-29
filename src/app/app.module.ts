@@ -36,7 +36,7 @@ import { OrderComponent } from './components/order/order.component';
     AdminpageComponent,
     CartComponent,
     CashComponent,
-    OrderComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
