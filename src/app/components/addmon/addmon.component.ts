@@ -17,9 +17,9 @@ export class AddmonComponent {
     formData.append('Img',Img);
     this.addmonService.AddService(formData).subscribe
     (res=>{
-        console.log(res);
+        alert(res)
       },err=>{
-        console.log(err)
+        alert(err)
       }
     )
   }
