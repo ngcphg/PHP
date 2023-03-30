@@ -17,6 +17,8 @@ import { CashComponent } from './components/cash/cash.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StatisticComponent } from './components/statistic/statistic.component';
 import { OrderComponent } from './components/order/order.component';
+import { TableComponent } from './components/table/table.component';
+
 
 const routes: Routes = [
   {path:'Home', component: HomeComponent},
@@ -33,6 +35,7 @@ const routes: Routes = [
   {path: 'Cart', component:CartComponent},
   {path: 'Cash', component:CashComponent},
   {path: 'Statistic', component:StatisticComponent},
+  {path: 'Table', component:TableComponent},
   {path: 'Order', component:OrderComponent},
 ];
 
