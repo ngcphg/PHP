@@ -6,8 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent {
-  constructor(){}
-  onCheck(){
+  constructor(){
     fetch('http://localhost:80/PHPapi/Reservation/GetReserInfo.php')
     .then(res => res.json())
     .then(data=>{
@@ -37,24 +36,7 @@ export class OrderComponent {
           row.insertCell().textContent = (reser.status == "1")? 'Applied' : 'Non-Applied';
           row.insertCell().textContent = reser.ByUser ? reser.ByUser : 'ko thaays';
 
-          const ApplyBtn = document.createElement('button');
-          ApplyBtn.textContent = 'Apply';
-          ApplyBtn.addEventListener('click', () => {
-            fetch('http://localhost:80/PHPapi/Reservation/DeleteReser.php?resID='+reser.resID+'.php')
-            .then(res=>{
-              alert('Cancel OK!');
-            })
-          });
-          row.insertCell().appendChild(ApplyBtn);
-          const cancelBtn = document.createElement('button');
-          cancelBtn.textContent = 'Cancel';
-          cancelBtn.addEventListener('click', () => {
-            fetch('http://localhost:80/PHPapi/Reservation/ApplyReser.php?resID='+reser.resID+'.php')
-            .then(res=>{
-              alert('Apply OK!');
-            })
-          });
-          row.insertCell().appendChild(cancelBtn);
+
         });
       }
     })

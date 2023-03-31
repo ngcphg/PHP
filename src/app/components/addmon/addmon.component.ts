@@ -6,7 +6,7 @@ import { AddmonService } from '../../services/addmon.services';
   styleUrls: ['./addmon.component.css']
 })
 export class AddmonComponent {
-  constructor(private addmonService: AddmonService){
+  constructor(){
 
   }
   Addmon(ProductName:string, Price:string, ProductDesc:string, Img:string){
@@ -15,12 +15,15 @@ export class AddmonComponent {
     formData.append('Price',Price);
     formData.append('ProductDesc',ProductDesc);
     formData.append('Img',Img);
-    this.addmonService.AddService(formData).subscribe
-    (res=>{
-        alert(res)
-      },err=>{
-        alert(err)
-      }
-    )
+    fetch('http://localhost:80/PHPapi/Product/AddProduct.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+      alert('Add ok!')
+      console.log(data);
+      location.href = 'http://localhost:4200/Menu'
+    })
   }
 }
