@@ -1,4 +1,3 @@
-//import { AdminComponent } from './components/admin/admin.component';
 import { ListingComponent } from './components/listing/listing.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { NgModule, Component } from '@angular/core';

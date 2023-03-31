@@ -38,7 +38,7 @@ import { StatisticComponent } from './components/statistic/statistic.component';
     CartComponent,
     CashComponent,
     OrderComponent,
-    StatisticComponent
+    StatisticComponent,
   ],
   imports: [
     BrowserModule,

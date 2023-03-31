@@ -70,7 +70,7 @@ export class ListingComponent{
         }
     })
   }
-   onClick(){
-
-   }
+  Order(){
+    location.href='http://localhost:4200/Menu?TableNo=1';
+  }
 }
