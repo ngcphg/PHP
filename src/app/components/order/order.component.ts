@@ -35,8 +35,36 @@ export class OrderComponent {
           row.insertCell().textContent = reser.note ? reser.note : 'ko thaays';
           row.insertCell().textContent = (reser.status == "1")? 'Applied' : 'Non-Applied';
           row.insertCell().textContent = reser.ByUser ? reser.ByUser : 'ko thaays';
-
-
+          //Apply
+          const ApplyBtn = document.createElement('button');
+          ApplyBtn.textContent = 'Apply';
+          ApplyBtn.addEventListener('click', () => {
+            fetch('http://localhost:80/PHPapi/Reservation/ApplyReser.php?resID='+reser.resID+'.php')
+            .then(res=>{
+              alert('Apply OK!');
+            })
+          });
+          row.insertCell().appendChild(ApplyBtn);
+          //Cancel
+          const cancelBtn = document.createElement('button');
+          cancelBtn.textContent = 'Cancel';
+          cancelBtn.addEventListener('click', () => {
+            fetch('http://localhost:80/PHPapi/Reservation/CancelReser.php?resID='+reser.resID+'.php')
+            .then(res=>{
+              alert('Apply OK!');
+            })
+          });
+          row.insertCell().appendChild(cancelBtn);
+          //Delete
+          const DeleteBtn = document.createElement('button');
+          DeleteBtn.textContent = 'Delete';
+          DeleteBtn.addEventListener('click', () => {
+            fetch('http://localhost:80/PHPapi/Reservation/DeleteReser.php?resID='+reser.resID+'.php')
+            .then(res=>{
+              alert('Cancel OK!');
+            })
+          });
+          row.insertCell().appendChild(DeleteBtn);
         });
       }
     })

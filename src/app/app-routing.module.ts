@@ -8,7 +8,6 @@ import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/login/login.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { PasswordComponent } from './components/password/password.component';
-import { BookingComponent } from './components/booking/booking.component';
 import { AddmonComponent } from './components/addmon/addmon.component';
 import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,7 +25,6 @@ const routes: Routes = [
   {path: 'Signin', component:SigninComponent},
   {path: 'Password', component:PasswordComponent},
   {path: 'List', component:ListingComponent},
-  {path: 'Booking', component:BookingComponent},
   {path: 'Addmon', component:AddmonComponent},
   {path: 'Adminpage', component:AdminpageComponent},
   {path: 'Statistic', component:StatisticComponent},

@@ -12,7 +12,6 @@ import { LoginComponent } from './components/login/login.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { PasswordComponent } from './components/password/password.component';
 import { ListingComponent } from './components/listing/listing.component';
-import { BookingComponent } from './components/booking/booking.component';
 import { AddmonComponent } from './components/addmon/addmon.component';
 import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { OrderComponent } from './components/order/order.component';
@@ -30,7 +29,6 @@ import { StatisticComponent } from './components/statistic/statistic.component';
     SigninComponent,
     PasswordComponent,
     ListingComponent,
-    BookingComponent,
     AddmonComponent,
     AdminpageComponent,
     OrderComponent,

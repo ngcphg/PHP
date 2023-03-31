@@ -18,12 +18,12 @@ export class LoginComponent {
     this.loginService.LoginService(formData).subscribe
       (res=>{
           if(res === "2"){
-            setCookie('user', user, { expires: 7 })
+            setCookie('permission', res, { expires: 7 })
             window.location.href = "http://localhost:4200/Home";
             alert("Đăng nhập thành công!");
           }else{
             if(res === "1"){
-              setCookie('user', user, { expires: 7 })
+              setCookie('permission', res, { expires: 7 })
               window.location.href = "http://localhost:4200/Adminpage";
               alert("Đăng nhập thành công, tài khoản cấp quản trị!");
             }else{
