@@ -42,14 +42,15 @@ export class ListingComponent{
               formData.append('TableNo',cart.TableNo);
               formData.append('ProductName',row.cells[1].textContent!);
               formData.append('Quantity',row.cells[2].textContent!);
-              formData.append('Price',row.cells[3].textContent!);
-              fetch('http://localhost:80/PHPapi/Product/EditProduct.php', {
+              var dg = parseInt(row.cells[3].textContent!) / parseInt(cart.Quantity);
+              var pri = dg * parseInt(row.cells[2].textContent!);
+              formData.append('Price',pri.toString());
+              fetch('http://localhost:80/PHPapi/Cart/EditCart.php', {
                 method: 'POST',
                 body: formData
               })
               .then(res => res.json())
               .then(data => {
-                console.log(formData.get('ProductDesc'));
                 alert(data)
                 location.reload();
               })
@@ -59,9 +60,9 @@ export class ListingComponent{
             const cancelBtn = document.createElement('button');
             cancelBtn.textContent = 'Delete';
             cancelBtn.addEventListener('click', () => {
-              fetch('http://localhost:80/PHPapi/Product/DeleteProduct.php?ProductID='+cart.TableNo+'')
+              fetch('http://localhost:80/PHPapi/Cart/DeleteCart.php?TableNo='+cart.TableNo+'&ProductName='+cart.ProductName)
               .then(res=>{
-                alert('Delete OK!');
+                alert("Delete OK!");
                 location.reload();
               })
             });
@@ -71,6 +72,43 @@ export class ListingComponent{
     })
   }
   Order(){
-    location.href='http://localhost:4200/Menu?TableNo=1';
+    const queryParams = new URLSearchParams(window.location.search.substring(1));
+    const table = queryParams.get("TableNo");
+    location.href='http://localhost:4200/Menu?TableNo='+table;
+  }
+  GetBill() {
+    const queryParams = new URLSearchParams(window.location.search.substring(1));
+    const table = queryParams.get("TableNo");
+    const tableBody = document.querySelector('#myTable tbody') as HTMLTableElement;
+    var billNumber = 0;
+    fetch('http://localhost:80/PHPapi/Bill/GetAllBill.php')
+    .then(res => res.json())
+    .then(data => {
+      billNumber = data.length;
+    })
+    if (tableBody) {
+      const rows = tableBody.rows;
+      const formData: FormData = new FormData();
+      for (let i = 0; i < rows.length; i++) {
+        const row = rows[i];
+        formData.append('BillNumber', billNumber.toString());
+        formData.append('ProductName', row.cells[1].textContent!);
+        formData.append('Quantity', row.cells[2].textContent!);
+        formData.append('Price', row.cells[3].textContent!);
+        fetch('http://localhost:80/PHPapi/Bill/CreateBill.php', {
+          method: 'POST',
+          body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+          fetch('http://localhost:80/PHPapi/Cart/DeleteCart.php?TableNo='+table+'&ProductName='+row.cells[1].textContent!+'')
+          .then(res => res.json())
+          .then(data =>{
+          })
+        })
+      }
+      alert("Thanh toán thành công, trở về trang order bàn!");
+      location.href = 'http://localhost:4200/Table';
+    }
   }
 }

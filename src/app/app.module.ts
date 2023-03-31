@@ -15,8 +15,6 @@ import { ListingComponent } from './components/listing/listing.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { AddmonComponent } from './components/addmon/addmon.component';
 import { AdminpageComponent } from './components/adminpage/adminpage.component';
-import { CartComponent } from './components/cart/cart.component';
-import { CashComponent } from './components/cash/cash.component';
 import { OrderComponent } from './components/order/order.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
 
@@ -35,8 +33,6 @@ import { StatisticComponent } from './components/statistic/statistic.component';
     BookingComponent,
     AddmonComponent,
     AdminpageComponent,
-    CartComponent,
-    CashComponent,
     OrderComponent,
     StatisticComponent,
   ],

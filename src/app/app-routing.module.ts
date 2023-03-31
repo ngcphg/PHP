@@ -11,8 +11,6 @@ import { PasswordComponent } from './components/password/password.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { AddmonComponent } from './components/addmon/addmon.component';
 import { AdminpageComponent } from './components/adminpage/adminpage.component';
-import { CartComponent } from './components/cart/cart.component';
-import { CashComponent } from './components/cash/cash.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StatisticComponent } from './components/statistic/statistic.component';
 import { OrderComponent } from './components/order/order.component';
@@ -31,8 +29,6 @@ const routes: Routes = [
   {path: 'Booking', component:BookingComponent},
   {path: 'Addmon', component:AddmonComponent},
   {path: 'Adminpage', component:AdminpageComponent},
-  {path: 'Cart', component:CartComponent},
-  {path: 'Cash', component:CashComponent},
   {path: 'Statistic', component:StatisticComponent},
   {path: 'Table', component:TableComponent},
   {path: 'Order', component:OrderComponent},

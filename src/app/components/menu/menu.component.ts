@@ -10,11 +10,11 @@ import {HttpClient} from '@angular/common/http'
 
 export class MenuComponent{
   constructor() {
+    const queryParams = new URLSearchParams(window.location.search.substring(1));
+    const table = queryParams.get("TableNo");
     fetch('http://localhost:80/PHPapi/Product/GetProduct.php')
     .then(response => response.json())
     .then(data => {
-      const queryParams = new URLSearchParams(window.location.search.substring(1));
-      const table = queryParams.get("TableNo");
       interface Product {
         ProductID: string;
         ProductName: string;
@@ -98,5 +98,11 @@ export class MenuComponent{
           });
         }
     })
+    const button = document.createElement('button');
+    button.innerHTML = 'Back to the table!';
+    button.addEventListener('click', function() {
+      location.href='http://localhost:4200/List?TableNo='+table;
+    });
+    document.body.appendChild(button);
   }
 }
