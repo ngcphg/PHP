@@ -102,6 +102,7 @@ export class MenuComponent{
           });
         }
     })
+
   }
   onClick(){
     if(getCookie('permission') == "1"){
