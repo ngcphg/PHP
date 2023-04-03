@@ -19,6 +19,7 @@ export class ListingComponent{
         Quantity: string;
         Price: string;
         Time:string;
+        CartID:string;
       }
       const tableBody = document.querySelector('#myTable tbody') as HTMLTableElement;
         if (tableBody) {
@@ -29,11 +30,9 @@ export class ListingComponent{
             row.insertCell().textContent = cart.Quantity ? cart.Quantity : 'ko thay';
             row.insertCell().textContent = cart.Price ? cart.Price +' VND' : 'ko thay';
             row.insertCell().textContent = cart.Time ? cart.Time : 'ko thay';
-            row.contentEditable = 'true';
-            row.cells[0].contentEditable='false';
-            row.cells[1].contentEditable='false';
-            row.cells[3].contentEditable='false';
-            row.cells[4].contentEditable='false';
+            row.insertCell().textContent = cart.CartID ? cart.CartID : 'ko thay';
+            row.contentEditable = 'false';
+            row.cells[2].contentEditable='true';
             //Edit button
             const ApplyBtn = document.createElement('button');
             ApplyBtn.textContent = 'Edit';
@@ -92,20 +91,18 @@ export class ListingComponent{
       for (let i = 0; i < rows.length; i++) {
         const row = rows[i];
         formData.append('BillNumber', billNumber.toString());
-        formData.append('ProductName', row.cells[1].textContent!);
-        formData.append('Quantity', row.cells[2].textContent!);
-        formData.append('Price', row.cells[3].textContent!);
+        formData.append('ProductName', rows[i].cells[1].textContent!);
+        formData.append('Quantity', rows[i].cells[2].textContent!);
+        formData.append('Price', rows[i].cells[3].textContent!);
+        formData.append('CartID', rows[i].cells[5].textContent!);
         fetch('http://localhost:80/PHPapi/Bill/CreateBill.php', {
           method: 'POST',
           body: formData
         })
-        .then(res => res.json())
-        .then(data => {
-          fetch('http://localhost:80/PHPapi/Cart/DeleteCart.php?TableNo='+table+'&ProductName='+row.cells[1].textContent!+'')
-          .then(res => res.json())
-          .then(data =>{
+        .then(res =>{
+              fetch('http://localhost:80/PHPapi/Cart/DeleteCart.php?CartID='+rows[i].cells[5].textContent!)
+              .then(res => res.json())
           })
-        })
       }
       alert("Thanh toán thành công, trở về trang order bàn!");
       location.href = 'http://localhost:4200/Table';

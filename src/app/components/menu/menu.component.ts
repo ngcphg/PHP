@@ -117,7 +117,7 @@ export class MenuComponent{
     if(table!=null){
       location.href='http://localhost:4200/List?TableNo='+table;
     }else{
-      alert('Failed');
+      location.href='http://localhost:4200/Adminpage';
     }
   }
 }

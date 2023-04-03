@@ -17,7 +17,7 @@ export class ContactComponent{
     formData.append('date',date);
     formData.append('time',time);
     formData.append('note',note);
-    formData.append('byUser',user);
+    formData.append('username',user);
     fetch('http://localhost:80/PHPapi/Reservation/CreateReservation.php',{
       method: 'POST',
       body:formData

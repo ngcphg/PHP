@@ -51,7 +51,7 @@ export class OrderComponent {
           cancelBtn.addEventListener('click', () => {
             fetch('http://localhost:80/PHPapi/Reservation/CancelReser.php?resID='+reser.resID+'.php')
             .then(res=>{
-              alert('Apply OK!');
+              alert('Cancel OK!');
             })
           });
           row.insertCell().appendChild(cancelBtn);
@@ -61,7 +61,7 @@ export class OrderComponent {
           DeleteBtn.addEventListener('click', () => {
             fetch('http://localhost:80/PHPapi/Reservation/DeleteReser.php?resID='+reser.resID+'.php')
             .then(res=>{
-              alert('Cancel OK!');
+              alert('Delete OK!');
             })
           });
           row.insertCell().appendChild(DeleteBtn);

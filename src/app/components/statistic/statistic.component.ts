@@ -67,4 +67,14 @@ export class StatisticComponent {
             }
         })
   }
+  Calculate(){
+    const tableBody = document.querySelector('#myTable tbody') as HTMLTableElement;
+        const rows = tableBody.rows;
+        var t = 0;
+        for (let i = 0; i < rows.length; i++) {
+          const row = rows[i];
+          t += parseInt(rows[i].cells[3].textContent!.substring(0, rows[i].cells[3].textContent!.length-4));
+        }
+        alert(t+' VND');
+  }
 }
