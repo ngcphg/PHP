@@ -1,4 +1,3 @@
-import { RegisterService } from './../../services/register.services';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,9 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
-  constructor(private registerService: RegisterService){
-
-  }
+  constructor(){}
   Register(user:string, pass:string, repass:string){
     if(pass !== repass){
       alert("Incorrect password retype, try again!");
@@ -17,13 +14,15 @@ export class SigninComponent {
       const formData:FormData = new FormData();
       formData.append('user', user);
       formData.append('pass', pass);
-      this.registerService.RegisterService(formData).subscribe
-          (res=>{
-              alert("Register OK! You can now use this accout!");
-        },err=>{
-          alert(err);
-        }
-      )
-    }
+      fetch('http://localhost:80/PHPapi/Login/RegisterClient.php',{
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data=> {
+        alert(data);
+      })
   }
 }
+}
+

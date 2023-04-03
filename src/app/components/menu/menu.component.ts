@@ -102,18 +102,21 @@ export class MenuComponent{
           });
         }
     })
-    const button = document.createElement('button');
-    button.innerHTML = 'Back to the table!';
-    button.addEventListener('click', function() {
-      location.href='http://localhost:4200/List?TableNo='+table;
-    });
-    document.body.appendChild(button);
   }
   onClick(){
     if(getCookie('permission') == "1"){
       location.href = 'http://localhost:4200/Addmon'
     }else{
       alert('Chỉ có admin mới có thể thêm món ăn vào thực đơn')
+    }
+  }
+  Back(){
+    const queryParams = new URLSearchParams(window.location.search.substring(1));
+    const table = queryParams.get("TableNo");
+    if(table!=null){
+      location.href='http://localhost:4200/List?TableNo='+table;
+    }else{
+      alert('Failed');
     }
   }
 }
